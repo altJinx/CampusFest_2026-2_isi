@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" styleClass="contenedor">
+    <Label text="Control de Ingreso con Código QR" styleClass="titulo"/>
+    <Label text="Identificador del evento:"/>
+    <TextField fx:id="campoEventoId" promptText="Ej. EV-01"/>
+    <Label text="Código QR de la reserva:"/>
+    <TextField fx:id="campoCodigoQr" promptText="Escanear o escribir código"/>
+    <Button text="Registrar Ingreso" onAction="#registrarIngreso"/>
+    <Label fx:id="etiquetaMensaje" styleClass="mensaje"/>
+</VBox>
