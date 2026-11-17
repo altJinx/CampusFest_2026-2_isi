@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS EVENTO (
+    id VARCHAR(100) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    fecha TIMESTAMP NOT NULL,
+    lugar VARCHAR(255) NOT NULL,
+    aforo INT NOT NULL,
+    bloqueados INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS RESERVA (
+    codigo VARCHAR(100) PRIMARY KEY,
+    evento_id VARCHAR(100) NOT NULL,
+    estudiante_id VARCHAR(100) NOT NULL,
+    vence_en TIMESTAMP NOT NULL,
+    estado VARCHAR(30) NOT NULL,
+    CONSTRAINT fk_reserva_evento FOREIGN KEY (evento_id) REFERENCES EVENTO(id)
+);
+
+CREATE TABLE IF NOT EXISTS ASISTENCIA (
+    reserva_codigo VARCHAR(100) PRIMARY KEY,
+    hora TIMESTAMP NOT NULL,
+    CONSTRAINT fk_asistencia_reserva FOREIGN KEY (reserva_codigo) REFERENCES RESERVA(codigo)
+);
